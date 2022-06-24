@@ -38,45 +38,225 @@
   transition: max-height 0.2s ease-out;
   background-color: #f1f1f1;
 }
+
+body {font-family: Arial;}
+
+/* Style the tab */
+.tab {
+  overflow: hidden;
+  border: 1px solid #ccc;
+  background-color: #f1f1f1;
+}
+
+/* Style the buttons inside the tab */
+.tab button {
+  background-color: inherit;
+  float: left;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  padding: 14px 16px;
+  transition: 0.3s;
+  font-size: 17px;
+}
+
+/* Change background color of buttons on hover */
+.tab button:hover {
+  background-color: #ddd;
+}
+
+/* Create an active/current tablink class */
+.tab button.active {
+  background-color: #ccc;
+}
+
+/* Style the tab content */
+.tabcontent {
+  display: none;
+  padding: 6px 12px;
+  border: 1px solid #ccc;
+  border-top: none;
+}
 </style>
 </head>
 <body>
 
-<table>
-  <tr>
-    <th>Name</th>
-    <th>Description</th>
-  </tr>
-  <tr>
-    <td>Deffskulls</td>
-    <td>
-      Reroll 1 hit roll or 1 wound roll when selected to shoot or fight<br>
-      5+++ for mortal wounds<br>
-      INFANTRY get ObSec
-    </td>
-  </tr>
-  <tr>
-    <td>'Ere We Go</td>
-    <td>Reroll charge rolls</td>
-  </tr>
-  <tr>
-    <td>Waaagh!</td>
-    <td>
-      Turn 1: CORE/CHARACTER can advance and charge, +1 attack to all ORKS<br>
-      Turn 2: +1 attack to all ORKS
-    </td>
-  </tr>
-  <tr>
-    <td>Starting CP</td>
-    <td>6</td>
-  </tr>
-  <tr>
-    <td>Assassinate Points</td>
-    <td>9</td>
-  </tr>
-</table>
+<div class="tab">
+  <button class="tablinks" onclick="openDetail(event, 'Details')">Details</button>
+  <button class="tablinks" onclick="openDetail(event, 'Datasheets')">Datasheets</button>
+  <button class="tablinks" onclick="openDetail(event, 'Missions')">Missions</button>
+</div>
 
-<button class="collapsible"> <!--Big Mek in Mega Armour-->
+<div id="Details" class="tabcontent">
+  <table>
+    <tr>
+      <th>Name</th>
+      <th>Description</th>
+    </tr>
+    <tr>
+      <td>Deffskulls</td>
+      <td>
+        Reroll 1 hit roll or 1 wound roll when selected to shoot or fight<br>
+        5+++ for mortal wounds<br>
+        INFANTRY get ObSec
+      </td>
+    </tr>
+    <tr>
+      <td>'Ere We Go</td>
+      <td>Reroll charge rolls</td>
+    </tr>
+    <tr>
+      <td>Waaagh!</td>
+      <td>
+        Turn 1: CORE/CHARACTER can advance and charge, +1 attack to all ORKS<br>
+        Turn 2: +1 attack to all ORKS
+      </td>
+    </tr>
+    <tr>
+      <td>Starting CP</td>
+      <td>6</td>
+    </tr>
+    <tr>
+      <td>Assassinate Points</td>
+      <td>9</td>
+    </tr>
+  </table>
+</div>
+
+<div id="Datasheets" class="tabcontent">
+  <button class="collapsible"> <!--Big Mek in Mega Armour-->
+      <table>
+          <tr>
+              <th>Name</th>
+              <th>M</th>
+              <th>WS</th>
+              <th>BS</th>
+              <th>S</th>
+              <th>T</th>
+              <th>W</th>
+              <th>A</th>
+              <th>Ld</th>
+              <th>Save</th>
+              <th>Unit Points</th>
+          </tr>
+          <tr>
+              <td># Big Mek in Mega Armour</td>
+              <td>4"</td>
+              <td>3+</td>
+              <td>4+</td>
+              <td>5</td>
+              <td>5</td>
+              <td>6</td>
+              <td>3</td>
+              <td>8</td>
+              <td>2+</td>
+              <td>130</td>
+          </tr>
+      </table>
+  </button>
+  <div class="content">
+    <table>
+      <tr>
+        <th>WEAPONS</th>
+          <table>
+            <tr>
+              <th>Name</th>
+              <th>Equipped</th>
+              <th>Range</th>
+              <th>Type</th>
+              <th>Strength</th>
+              <th>AP</th>
+              <th>Damage</th>
+              <th>Abilites</th>
+            </tr>
+            <tr>
+              <td>Kustom Mega-Blasta</td>
+              <td>1</td>
+              <td>24"</td>
+              <td>Assault d3</td>
+              <td>8</td>
+              <td>-3</td>
+              <td>d6</td>
+              <td>Blast, hit rolls of 1 = 1 mortal wound</td>
+            </tr>
+            <tr>
+              <td>Power Klaw</td>
+              <td>1</td>
+              <td>M</td>
+              <td>M</td>
+              <td>x2</td>
+              <td>-3</td>
+              <td>2</td>
+              <td>-1 to hit</td>
+            </tr>
+          </table>
+      </tr>
+    </table>
+    <table>
+      <tr>
+        <th>ABILITIES</th>
+        <table>
+          <tr>
+              <th>
+                  Name
+              </th>
+              <th>
+                  Description
+              </th>
+          </tr>
+          <tr>
+              <td>
+                  Big Gob
+              </td>
+              <td>
+                  +3" to aura abilities
+              </td>
+          </tr>
+          <tr>
+              <td>
+                  Big Mekaniak
+              </td>
+              <td>
+                At the end of your Movement phase, repair a single vehicle model within 3" for d3 wounds.
+              </td>
+          </tr>
+          <tr>
+            <td>
+                Grot Oiler
+            </td>
+            <td>
+              Once per battle, when the bearer repairs a VEHICLE model, that model can regain 1 additional lost wound
+            </td>
+          </tr>
+          <tr>
+            <td>
+                Bionik Oiler
+            </td>
+            <td>
+                Can use Grot Oiler twice per battle
+            </td>
+          </tr>
+          <tr>
+            <td>
+                Da Fixer Upper
+            </td>
+            <td>
+              When using Big Mekaniak, roll one d6: on a 2+ the vehicle regains 1 additional wound, and you can select one enemy VEHICLE unit within 12" to suffer d3 mortal wounds
+            </td>
+          </tr>
+          <tr>
+              <td>
+                  Kustom Force Field
+              </td>
+              <td>
+                  (Aura) 6++ for ORKS units within 6"
+              </td>
+          </tr>
+        </table>
+      </tr>
+    </table>
+  </div>
+  <button class="collapsible"> <!--Beast Snaggas-->
     <table>
         <tr>
             <th>Name</th>
@@ -89,1611 +269,1949 @@
             <th>A</th>
             <th>Ld</th>
             <th>Save</th>
+            <th>Unit Points</th>
         </tr>
         <tr>
-            <td>Big Mek in Mega Armour</td>
-            <td>4"</td>
+            <td>! Beast Snagga Nob</td>
+            <td>5"</td>
             <td>3+</td>
-            <td>4+</td>
+            <td>5+</td>
             <td>5</td>
             <td>5</td>
-            <td>6</td>
-            <td>3</td>
-            <td>8</td>
-            <td>2+</td>
-        </tr>
-    </table>
-</button>
-<div class="content">
-  <table>
-    <tr>
-      <th>WEAPONS</th>
-        <table>
-          <tr>
-            <th>Name</th>
-            <th>Range</th>
-            <th>Type</th>
-            <th>Strength</th>
-            <th>AP</th>
-            <th>Damage</th>
-            <th>Abilites</th>
-          </tr>
-          <tr>
-            <td>Kustom Mega-Blasta</td>
-            <td>24"</td>
-            <td>Assault d3</td>
-            <td>8</td>
-            <td>-3</td>
-            <td>d6</td>
-            <td>Blast, hit rolls of 1 = 1 mortal wound</td>
-          </tr>
-          <tr>
-            <td>Power Klaw</td>
-            <td>M</td>
-            <td>M</td>
-            <td>x2</td>
-            <td>-3</td>
             <td>2</td>
-            <td>-1 to hit</td>
-          </tr>
-        </table>
-    </tr>
-  </table>
-  <table>
-    <tr>
-      <th>ABILITIES</th>
-      <table>
-        <tr>
-            <th>
-                Name
-            </th>
-            <th>
-                Description
-            </th>
+            <td>3</td>
+            <td>7</td>
+            <td>6+</td>
+            <td>110</td>
         </tr>
         <tr>
-            <td>
-                Big Gob
-            </td>
-            <td>
-                +3" to aura abilities
-            </td>
-        </tr>
-        <tr>
-            <td>
-                Big Mekaniak
-            </td>
-            <td>
-              At the end of your Movement phase, repair a single vehicle model within 3" for d3 wounds.
-            </td>
-        </tr>
-        <tr>
-          <td>
-              Grot Oiler
-          </td>
-          <td>
-            Once per battle, when the bearer repairs a VEHICLE model, that model can regain 1 additional lost wound
-          </td>
-        </tr>
-        <tr>
-          <td>
-              Bionik Oiler
-          </td>
-          <td>
-              Can use Grot Oiler twice per battle
-          </td>
-        </tr>
-        <tr>
-          <td>
-              Da Fixer Upper
-          </td>
-          <td>
-            When using Big Mekaniak, roll one d6: on a 2+ the vehicle regains 1 additional wound, and you can select one enemy VEHICLE unit within 12" to suffer d3 mortal wounds
-          </td>
-        </tr>
-        <tr>
-            <td>
-                Kustom Force Field
-            </td>
-            <td>
-                (Aura) 6++ for ORKS units within 6"
-            </td>
-        </tr>
-      </table>
-    </tr>
-  </table>
-</div>
-<button class="collapsible"> <!--Beast Snaggas-->
-  <table>
-      <tr>
-          <th>Name</th>
-          <th>M</th>
-          <th>WS</th>
-          <th>BS</th>
-          <th>S</th>
-          <th>T</th>
-          <th>W</th>
-          <th>A</th>
-          <th>Ld</th>
-          <th>Save</th>
-      </tr>
-      <tr>
-          <td>Beast Snagga Nob</td>
+          <td>! Beast Snagga Boyz</td>
           <td>5"</td>
           <td>3+</td>
           <td>5+</td>
           <td>5</td>
           <td>5</td>
+          <td>1</td>
           <td>2</td>
-          <td>3</td>
-          <td>7</td>
+          <td>6</td>
           <td>6+</td>
+          <td>110</td>
       </tr>
+    </table>
+  </button>
+  <div class="content">
+    <table>
       <tr>
-        <td>Beast Snagga Boyz</td>
-        <td>5"</td>
-        <td>3+</td>
-        <td>5+</td>
-        <td>5</td>
-        <td>5</td>
-        <td>1</td>
-        <td>2</td>
-        <td>6</td>
-        <td>6+</td>
-    </tr>
-  </table>
-</button>
-<div class="content">
-  <table>
-    <tr>
-      <th>WEAPONS</th>
+        <th>WEAPONS</th>
+          <table>
+            <tr>
+              <th>Name</th>
+              <th>Equipped</th>
+              <th>Range</th>
+              <th>Type</th>
+              <th>Strength</th>
+              <th>AP</th>
+              <th>Damage</th>
+              <th>Abilites</th>
+            </tr>
+            <tr>
+              <td>Slugga</td>
+              <td>1</td>
+              <td>12"</td>
+              <td>Pistol 1</td>
+              <td>4</td>
+              <td>0</td>
+              <td>1</td>
+              <td>-</td>
+            </tr>
+            <tr>
+              <td>Power Snappa</td>
+              <td>1</td>
+              <td>M</td>
+              <td>M</td>
+              <td>+2</td>
+              <td>-2</td>
+              <td>2</td>
+              <td>-</td>
+            </tr>
+            <tr>
+              <td>Choppa</td>
+              <td>1</td>
+              <td>M</td>
+              <td>M</td>
+              <td>U</td>
+              <td>-1</td>
+              <td>1</td>
+              <td>+1 attack</td>
+            </tr>
+          </table>
+      </tr>
+    </table>
+    <table>
+      <tr>
+        <th>ABILITIES</th>
         <table>
           <tr>
-            <th>Name</th>
-            <th>Range</th>
-            <th>Type</th>
-            <th>Strength</th>
-            <th>AP</th>
-            <th>Damage</th>
-            <th>Abilites</th>
+              <th>
+                  Name
+              </th>
+              <th>
+                  Description
+              </th>
           </tr>
           <tr>
-            <td>Slugga</td>
-            <td>12"</td>
-            <td>Pistol 1</td>
-            <td>4</td>
-            <td>0</td>
-            <td>1</td>
-            <td>-</td>
-          </tr>
-          <tr>
-            <td>Power Snappa</td>
-            <td>M</td>
-            <td>M</td>
-            <td>+2</td>
-            <td>-2</td>
-            <td>2</td>
-            <td>-</td>
-          </tr>
-          <tr>
-            <td>Choppa</td>
-            <td>M</td>
-            <td>M</td>
-            <td>U</td>
-            <td>-1</td>
-            <td>1</td>
-            <td>+1 attack</td>
+              <td>
+                  Beast Snagga
+              </td>
+              <td>
+                  +1 to hit for VEHICLE or MONSTER<br>
+                  6++
+              </td>
           </tr>
         </table>
-    </tr>
-  </table>
-  <table>
-    <tr>
-      <th>ABILITIES</th>
-      <table>
-        <tr>
-            <th>
-                Name
-            </th>
-            <th>
-                Description
-            </th>
-        </tr>
-        <tr>
-            <td>
-                Beast Snagga
-            </td>
-            <td>
-                +1 to hit for VEHICLE or MONSTER<br>
-                6++
-            </td>
-        </tr>
-      </table>
-    </tr>
-  </table>
-</div>
-<button class="collapsible"> <!--Deffkoptas-->
-  <table>
-      <tr>
-          <th>Name</th>
-          <th>M</th>
-          <th>WS</th>
-          <th>BS</th>
-          <th>S</th>
-          <th>T</th>
-          <th>W</th>
-          <th>A</th>
-          <th>Ld</th>
-          <th>Save</th>
       </tr>
+    </table>
+  </div>
+  <button class="collapsible"> <!--Deffkoptas-->
+    <table>
+        <tr>
+            <th>Name</th>
+            <th>M</th>
+            <th>WS</th>
+            <th>BS</th>
+            <th>S</th>
+            <th>T</th>
+            <th>W</th>
+            <th>A</th>
+            <th>Ld</th>
+            <th>Save</th>
+            <th>Unit Points</th>
+        </tr>
+        <tr>
+            <td>$ Deff Koptas</td>
+            <td>14"</td>
+            <td>3+</td>
+            <td>5+</td>
+            <td>4</td>
+            <td>5</td>
+            <td>4</td>
+            <td>2</td>
+            <td>6</td>
+            <td>4+</td>
+            <td>255</td>
+        </tr>
+    </table>
+  </button>
+  <div class="content">
+    <table>
       <tr>
-          <td>Deff Koptas</td>
-          <td>14"</td>
+        <th>WEAPONS</th>
+          <table>
+            <tr>
+              <th>Name</th>
+              <th>Equipped</th>
+              <th>Range</th>
+              <th>Type</th>
+              <th>Strength</th>
+              <th>AP</th>
+              <th>Damage</th>
+              <th>Abilites</th>
+            </tr>
+            <tr>
+              <td>Kopta-Rokkits</td>
+              <td>1</td>
+              <td>24"</td>
+              <td>Heavy 2d3</td>
+              <td>8</td>
+              <td>-2</td>
+              <td>3</td>
+              <td>Blast</td>
+            </tr>
+            <tr>
+              <td>Kustom Mega-Blasta</td>
+              <td>1</td>
+              <td>24"</td>
+              <td>Assault d3</td>
+              <td>8</td>
+              <td>-3</td>
+              <td>d6</td>
+              <td>Blast, hit rolls of 1 = 1 mortal wound</td>
+            </tr>
+            <tr>
+              <td>Stikkbombs</td>
+              <td>1</td>
+              <td>8"</td>
+              <td>Grenade d6</td>
+              <td>3</td>
+              <td>0</td>
+              <td>1</td>
+              <td>Blast</td>
+            </tr>
+            <tr>
+              <td>Slugga</td>
+              <td>1</td>
+              <td>12"</td>
+              <td>Pistol 1</td>
+              <td>4</td>
+              <td>0</td>
+              <td>1</td>
+              <td>-</td>
+            </tr>
+            <tr>
+              <td>Spinnin' Blades</td>
+              <td>1</td>
+              <td>M</td>
+              <td>M</td>
+              <td>+1</td>
+              <td>-1</td>
+              <td>1</td>
+              <td>3 hit rolls for every attack</td>
+            </tr>
+          </table>
+      </tr>
+    </table>
+    <table>
+      <tr>
+        <th>ABILITIES</th>
+        <table>
+          <tr>
+              <th>
+                  Name
+              </th>
+              <th>
+                  Description
+              </th>
+          </tr>
+          <tr>
+              <td>
+                  Big Bomb
+              </td>
+              <td>
+                After normal move/advance, roll 1 d6 for unit within 3" of a point you moved over, subtract one for non-VEHICLE/MONSTER CHARACTERS, 4+ = d3 mortal wounds
+              </td>
+          </tr>
+          <tr>
+              <td>
+                  Big Red Button
+              </td>
+              <td>
+                Auto 6" advance
+              </td>
+          </tr>
+          <tr>
+            <td>
+                Ramshackle
+            </td>
+            <td>
+              Weapons with less than 8 strength = -1 damage
+            </td>
+          </tr>
+          <tr>
+            <td>
+                Swoopin' Down
+            </td>
+            <td>
+                Deepstrike
+            </td>
+          </tr>
+        </table>
+      </tr>
+    </table>
+  </div>
+  <button class="collapsible"> <!--Deff Dreads-->
+    <table>
+        <tr>
+            <th>Name</th>
+            <th>M</th>
+            <th>WS</th>
+            <th>BS</th>
+            <th>S</th>
+            <th>T</th>
+            <th>W</th>
+            <th>A</th>
+            <th>Ld</th>
+            <th>Save</th>
+            <th>210</th>
+        </tr>
+        <tr>
+            <td>$ Deff Dreads</td>
+            <td>6"</td>
+            <td>3+</td>
+            <td>5+</td>
+            <td>5</td>
+            <td>7</td>
+            <td>8</td>
+            <td>3</td>
+            <td>7</td>
+            <td>3+</td>
+        </tr>
+    </table>
+  </button>
+  <div class="content">
+    <table>
+      <tr>
+        <th>WEAPONS</th>
+          <table>
+            <tr>
+              <th>Name</th>
+              <th>Equipped</th>
+              <th>Range</th>
+              <th>Type</th>
+              <th>Strength</th>
+              <th>AP</th>
+              <th>Damage</th>
+              <th>Abilites</th>
+            </tr>
+            <tr>
+              <td>Rokkit Launcha</td>
+              <td>2</td>
+              <td>24"</td>
+              <td>Heavy d3</td>
+              <td>8</td>
+              <td>-2</td>
+              <td>3</td>
+              <td>Blast</td>
+            </tr>
+            <tr>
+              <td>Dread Klaw</td>
+              <td>2</td>
+              <td>M</td>
+              <td>M</td>
+              <td>x2</td>
+              <td>-3</td>
+              <td>3</td>
+              <td>+1 attack</td>
+            </tr>
+          </table>
+      </tr>
+    </table>
+    <table>
+      <tr>
+        <th>ABILITIES</th>
+        <table>
+          <tr>
+              <th>
+                Name
+              </th>
+              <th>
+                Description
+              </th>
+          </tr>
+          <tr>
+              <td>
+                Dread Mob
+              </td>
+              <td>
+                Set up within 6", but treated as separate units after
+              </td>
+          </tr>
+          <tr>
+              <td>
+                Explodes
+              </td>
+              <td>
+                6 to explode, 3" d3 mortal wounds
+              </td>
+          </tr>
+          <tr>
+            <td>
+              Ramshackle
+            </td>
+            <td>
+              Less than 8 S = -1 D
+            </td>
+          </tr>
+        </table>
+      </tr>
+    </table>
+  </div>
+  <button class="collapsible"> <!--Killa Kans-->
+    <table>
+        <tr>
+            <th>Name</th>
+            <th>M</th>
+            <th>WS</th>
+            <th>BS</th>
+            <th>S</th>
+            <th>T</th>
+            <th>W</th>
+            <th>A</th>
+            <th>Ld</th>
+            <th>Save</th>
+            <th>Unit Points</th>
+        </tr>
+        <tr>
+            <td>$ Killa Kans</td>
+            <td>6"</td>
+            <td>4+</td>
+            <td>4+</td>
+            <td>5</td>
+            <td>5</td>
+            <td>5</td>
+            <td>3</td>
+            <td>6</td>
+            <td>3+</td>
+            <td>200</td>
+        </tr>
+    </table>
+  </button>
+  <div class="content">
+    <table>
+      <tr>
+        <th>WEAPONS</th>
+          <table>
+            <tr>
+              <th>Name</th>
+              <th>Equipped</th>
+              <th>Range</th>
+              <th>Type</th>
+              <th>Strength</th>
+              <th>AP</th>
+              <th>Damage</th>
+              <th>Abilites</th>
+            </tr>
+            <tr>
+              <td>Rokkit Launcha</td>
+              <td>1</td>
+              <td>24"</td>
+              <td>Heavy d3</td>
+              <td>8</td>
+              <td>-2</td>
+              <td>3</td>
+              <td>Blast</td>
+            </tr>
+            <tr>
+              <td>Kan Klaw</td>
+              <td>1</td>
+              <td>M</td>
+              <td>M</td>
+              <td>+3</td>
+              <td>-3</td>
+              <td>3</td>
+              <td>-</td>
+            </tr>
+          </table>
+      </tr>
+    </table>
+    <table>
+      <tr>
+        <th>ABILITIES</th>
+        <table>
+          <tr>
+              <th>
+                  Name
+              </th>
+              <th>
+                  Description
+              </th>
+          </tr>
+          <tr>
+              <td>
+                  Explodes
+              </td>
+              <td>
+                  6 to explode, 3" d3 mortal wounds
+              </td>
+          </tr>
+          <tr>
+              <td>
+                  Ramshackle
+              </td>
+              <td>
+                Less than 8 S = -1 D
+              </td>
+          </tr>
+          <tr>
+            <td>
+                Scrag 'Em
+            </td>
+            <td>
+              If 3 or more models in the unit, +1 attack
+            </td>
+          </tr>
+        </table>
+      </tr>
+    </table>
+  </div>
+  <button class="collapsible"> <!--Kommandos-->
+    <table>
+        <tr>
+            <th>Name</th>
+            <th>M</th>
+            <th>WS</th>
+            <th>BS</th>
+            <th>S</th>
+            <th>T</th>
+            <th>W</th>
+            <th>A</th>
+            <th>Ld</th>
+            <th>Save</th>
+            <th>Unit Points</th>
+        </tr>
+        <tr>
+            <td>! Kommando Boss Nob</td>
+            <td>6"</td>
+            <td>3+</td>
+            <td>5+</td>
+            <td>5</td>
+            <td>5</td>
+            <td>2</td>
+            <td>3</td>
+            <td>7</td>
+            <td>6+</td>
+            <td>77</td>
+        </tr>
+        <tr>
+          <td>! Kommando</td>
+          <td>6"</td>
           <td>3+</td>
           <td>5+</td>
           <td>4</td>
           <td>5</td>
-          <td>4</td>
+          <td>1</td>
           <td>2</td>
           <td>6</td>
-          <td>4+</td>
+          <td>6+</td>
+          <td>77</td>
       </tr>
-  </table>
-</button>
-<div class="content">
-  <table>
-    <tr>
-      <th>WEAPONS</th>
+    </table>
+  </button>
+  <div class="content">
+    <table>
+      <tr>
+        <th>WEAPONS</th>
+          <table>
+            <tr>
+              <th>Name</th>
+              <th>Equipped</th>
+              <th>Range</th>
+              <th>Type</th>
+              <th>Strength</th>
+              <th>AP</th>
+              <th>Damage</th>
+              <th>Abilites</th>
+            </tr>
+            <tr>
+              <td>Slugga</td>
+              <td>1</td>
+              <td>12"</td>
+              <td>Pistol 1</td>
+              <td>4</td>
+              <td>0</td>
+              <td>1</td>
+              <td>-</td>
+            </tr>
+            <tr>
+              <td>Stikkbombs</td>
+              <td>1</td>
+              <td>8"</td>
+              <td>Grenade d6</td>
+              <td>3</td>
+              <td>0</td>
+              <td>1</td>
+              <td>Blast</td>
+            </tr>
+            <tr>
+              <td>Choppa</td>
+              <td>1</td>
+              <td>M</td>
+              <td>M</td>
+              <td>U</td>
+              <td>-1</td>
+              <td>1</td>
+              <td>+1 attack</td>
+            </tr>
+            <tr>
+              <td>Power Klaw</td>
+              <td>1</td>
+              <td>M</td>
+              <td>M</td>
+              <td>x2</td>
+              <td>-3</td>
+              <td>2</td>
+              <td>-1 to hit</td>
+            </tr>
+          </table>
+      </tr>
+    </table>
+    <table>
+      <tr>
+        <th>ABILITIES</th>
         <table>
           <tr>
+              <th>
+                  Name
+              </th>
+              <th>
+                  Description
+              </th>
+          </tr>
+          <tr>
+              <td>
+                  Kunnin' Infiltrators
+              </td>
+              <td>
+                Can deploy anywhere 9" away from opponent's deployment zone/models
+              </td>
+          </tr>
+          <tr>
+              <td>
+                  Sneaky Gits
+              </td>
+              <td>
+                If receiving the benefit of cover, +2 to Save roll
+              </td>
+          </tr>
+          <tr>
+            <td>
+                Throat Slitters
+            </td>
+            <td>
+              If within 1" of terrain, +1 to wound roll in melee
+            </td>
+          </tr>
+        </table>
+      </tr>
+    </table>
+  </div>
+  <button class="collapsible"> <!--Kustom Boosta Blastas-->
+    <table>
+        <tr>
             <th>Name</th>
-            <th>Range</th>
-            <th>Type</th>
-            <th>Strength</th>
-            <th>AP</th>
-            <th>Damage</th>
-            <th>Abilites</th>
-          </tr>
-          <tr>
-            <td>Kopta-Rokkits</td>
-            <td>24"</td>
-            <td>Heavy 2d3</td>
-            <td>8</td>
-            <td>-2</td>
-            <td>3</td>
-            <td>Blast</td>
-          </tr>
-          <tr>
-            <td>Kustom Mega-Blasta</td>
-            <td>24"</td>
-            <td>Assault d3</td>
-            <td>8</td>
-            <td>-3</td>
-            <td>d6</td>
-            <td>Blast, hit rolls of 1 = 1 mortal wound</td>
-          </tr>
-          <tr>
-            <td>Stikkbombs</td>
-            <td>8"</td>
-            <td>Grenade d6</td>
-            <td>3</td>
-            <td>0</td>
-            <td>1</td>
-            <td>Blast</td>
-          </tr>
-          <tr>
-            <td>Slugga</td>
+            <th>M</th>
+            <th>WS</th>
+            <th>BS</th>
+            <th>S</th>
+            <th>T</th>
+            <th>W</th>
+            <th>A</th>
+            <th>Ld</th>
+            <th>Save</th>
+            <th>Unit Points</th>
+        </tr>
+        <tr>
+            <td>$ Kustom Boosta Blastas</td>
             <td>12"</td>
-            <td>Pistol 1</td>
+            <td>4+</td>
+            <td>5+</td>
+            <td>5</td>
+            <td>6</td>
+            <td>8</td>
             <td>4</td>
-            <td>0</td>
-            <td>1</td>
-            <td>-</td>
-          </tr>
-          <tr>
-            <td>Spinnin' Blades</td>
-            <td>M</td>
-            <td>M</td>
-            <td>+1</td>
-            <td>-1</td>
-            <td>1</td>
-            <td>3 hit rolls for every attack</td>
-          </tr>
-        </table>
-    </tr>
-  </table>
-  <table>
-    <tr>
-      <th>ABILITIES</th>
-      <table>
-        <tr>
-            <th>
-                Name
-            </th>
-            <th>
-                Description
-            </th>
+            <td>7</td>
+            <td>4+</td>
+            <td>160</td>
         </tr>
-        <tr>
-            <td>
-                Big Bomb
-            </td>
-            <td>
-              After normal move/advance, roll 1 d6 for unit within 3" of a point you moved over, subtract one for non-VEHICLE/MONSTER CHARACTERS, 4+ = d3 mortal wounds
-            </td>
-        </tr>
-        <tr>
-            <td>
-                Big Red Button
-            </td>
-            <td>
-              Auto 6" advance
-            </td>
-        </tr>
-        <tr>
-          <td>
-              Ramshackle
-          </td>
-          <td>
-            Weapons with less than 8 strength = -1 damage
-          </td>
-        </tr>
-        <tr>
-          <td>
-              Swoopin' Down
-          </td>
-          <td>
-              Deepstrike
-          </td>
-        </tr>
-      </table>
-    </tr>
-  </table>
-</div>
-<button class="collapsible"> <!--Deff Dreads-->
-  <table>
+    </table>
+  </button>
+  <div class="content">
+    <table>
       <tr>
-          <th>Name</th>
-          <th>M</th>
-          <th>WS</th>
-          <th>BS</th>
-          <th>S</th>
-          <th>T</th>
-          <th>W</th>
-          <th>A</th>
-          <th>Ld</th>
-          <th>Save</th>
+        <th>WEAPONS</th>
+          <table>
+            <tr>
+              <th>Name</th>
+              <th>Equipped</th>
+              <th>Range</th>
+              <th>Type</th>
+              <th>Strength</th>
+              <th>AP</th>
+              <th>Damage</th>
+              <th>Abilites</th>
+            </tr>
+            <tr>
+              <td>Burna Exhaust</td>
+              <td>4</td>
+              <td>8"</td>
+              <td>Assault d6</td>
+              <td>4</td>
+              <td>0</td>
+              <td>1</td>
+              <td>Auto hit</td>
+            </tr>
+            <tr>
+              <td>Grot Blasta</td>
+              <td>1</td>
+              <td>12"</td>
+              <td>Pistol 1</td>
+              <td>3</td>
+              <td>0</td>
+              <td>1</td>
+              <td>-</td>
+            </tr>
+            <tr>
+              <td>Rivet Cannon</td>
+              <td>1</td>
+              <td>36"</td>
+              <td>Dakka 9/6</td>
+              <td>7</td>
+              <td>-2</td>
+              <td>2</td>
+              <td>-</td>
+            </tr>
+            <tr>
+              <td>Stikkbombs</td>
+              <td>1</td>
+              <td>8"</td>
+              <td>Grenade d6</td>
+              <td>3</td>
+              <td>0</td>
+              <td>1</td>
+              <td>Blast</td>
+            </tr>
+          </table>
       </tr>
+    </table>
+    <table>
       <tr>
-          <td>Deff Dreads</td>
-          <td>6"</td>
-          <td>3+</td>
-          <td>5+</td>
-          <td>5</td>
-          <td>7</td>
-          <td>8</td>
-          <td>3</td>
-          <td>7</td>
-          <td>3+</td>
-      </tr>
-  </table>
-</button>
-<div class="content">
-  <table>
-    <tr>
-      <th>WEAPONS</th>
+        <th>ABILITIES</th>
         <table>
           <tr>
-            <th>Name</th>
-            <th>Range</th>
-            <th>Type</th>
-            <th>Strength</th>
-            <th>AP</th>
-            <th>Damage</th>
-            <th>Abilites</th>
+              <th>
+                  Name
+              </th>
+              <th>
+                  Description
+              </th>
           </tr>
           <tr>
-            <td>Rokkit Launcha</td>
-            <td>24"</td>
-            <td>Heavy d3</td>
-            <td>8</td>
-            <td>-2</td>
-            <td>3</td>
-            <td>Blast</td>
+              <td>
+                  Explodes
+              </td>
+              <td>
+                  6 to explode, 3" d3 mortal wounds
+              </td>
           </tr>
           <tr>
-            <td>Dread Klaw</td>
-            <td>M</td>
-            <td>M</td>
-            <td>x2</td>
-            <td>-3</td>
-            <td>3</td>
-            <td>+1 attack</td>
+              <td>
+                  Grot Gunner
+              </td>
+              <td>
+                +1 to hit with Grot Blasta
+              </td>
+          </tr>
+          <tr>
+            <td>
+                Ramshackle
+            </td>
+            <td>
+              Less than 8 = -1 D
+            </td>
+          </tr>
+          <tr>
+            <td>
+                Riding Shotgun
+            </td>
+            <td>
+                Can shoot Grenade and Pistol in addition to other weapons
+            </td>
+          </tr>
+          <tr>
+            <td>
+                Spiked Ram
+            </td>
+            <td>
+              After charge, d6 for each model in this unit, 4+ = d3 mortal wounds
+            </td>
           </tr>
         </table>
-    </tr>
-  </table>
-  <table>
-    <tr>
-      <th>ABILITIES</th>
-      <table>
-        <tr>
-            <th>
-              Name
-            </th>
-            <th>
-              Description
-            </th>
-        </tr>
-        <tr>
-            <td>
-              Dread Mob
-            </td>
-            <td>
-              Set up within 6", but treated as separate units after
-            </td>
-        </tr>
-        <tr>
-            <td>
-              Explodes
-            </td>
-            <td>
-              6 to explode, 3" d3 mortal wounds
-            </td>
-        </tr>
-        <tr>
-          <td>
-            Ramshackle
-          </td>
-          <td>
-            Less than 8 S = -1 D
-          </td>
-        </tr>
-      </table>
-    </tr>
-  </table>
-</div>
-<button class="collapsible"> <!--Killa Kans-->
-  <table>
-      <tr>
-          <th>Name</th>
-          <th>M</th>
-          <th>WS</th>
-          <th>BS</th>
-          <th>S</th>
-          <th>T</th>
-          <th>W</th>
-          <th>A</th>
-          <th>Ld</th>
-          <th>Save</th>
       </tr>
+    </table>
+  </div>
+  <button class="collapsible"> <!--Meganobz-->
+    <table>
+        <tr>
+            <th>Name</th>
+            <th>M</th>
+            <th>WS</th>
+            <th>BS</th>
+            <th>S</th>
+            <th>T</th>
+            <th>W</th>
+            <th>A</th>
+            <th>Ld</th>
+            <th>Save</th>
+            <th>Unit Points</th>
+        </tr>
+        <tr>
+            <td>! Meganobz</td>
+            <td>5"</td>
+            <td>3+</td>
+            <td>5+</td>
+            <td>5</td>
+            <td>5</td>
+            <td>3</td>
+            <td>3</td>
+            <td>7</td>
+            <td>2+</td>
+            <td>160</td>
+        </tr>
+    </table>
+  </button>
+  <div class="content">
+    <table>
       <tr>
-          <td>Killa Kans</td>
-          <td>6"</td>
-          <td>4+</td>
-          <td>4+</td>
-          <td>5</td>
-          <td>5</td>
-          <td>5</td>
-          <td>3</td>
-          <td>6</td>
-          <td>3+</td>
+        <th>WEAPONS</th>
+          <table>
+            <tr>
+              <th>Name</th>
+              <th>Equipped</th>
+              <th>Range</th>
+              <th>Type</th>
+              <th>Strength</th>
+              <th>AP</th>
+              <th>Damage</th>
+              <th>Abilites</th>
+            </tr>
+            <tr>
+              <td>Skorcha</td>
+              <td>1</td>
+              <td>12"</td>
+              <td>Assault d6</td>
+              <td>5</td>
+              <td>-1</td>
+              <td>1</td>
+              <td>Auto hit</td>
+            </tr>
+            <tr>
+              <td>Shoota</td>
+              <td>1</td>
+              <td>18"</td>
+              <td>Dakka 3/2</td>
+              <td>4</td>
+              <td>0</td>
+              <td>1</td>
+              <td>-</td>
+            </tr>
+            <tr>
+              <td>Stikkbombs</td>
+              <td>1</td>
+              <td>8"</td>
+              <td>Grenade d6</td>
+              <td>3</td>
+              <td>0</td>
+              <td>1</td>
+              <td>Blast</td>
+            </tr>
+            <tr>
+              <td>Killsaw</td>
+              <td>2</td>
+              <td>M</td>
+              <td>M</td>
+              <td>x2</td>
+              <td>-4</td>
+              <td>d3</td>
+              <td>-1 to hit, +1 attack</td>
+            </tr>
+            <tr>
+              <td>Power Klaw</td>
+              <td>1</td>
+              <td>M</td>
+              <td>M</td>
+              <td>x2</td>
+              <td>-3</td>
+              <td>2</td>
+              <td>-1 to hit</td>
+            </tr>
+          </table>
       </tr>
-  </table>
-</button>
-<div class="content">
-  <table>
-    <tr>
-      <th>WEAPONS</th>
+    </table>
+    <table>
+      <tr>
+        <th>ABILITIES</th>
         <table>
           <tr>
-            <th>Name</th>
-            <th>Range</th>
-            <th>Type</th>
-            <th>Strength</th>
-            <th>AP</th>
-            <th>Damage</th>
-            <th>Abilites</th>
+              <th>
+                  Name
+              </th>
+              <th>
+                  Description
+              </th>
           </tr>
           <tr>
-            <td>Rokkit Launcha</td>
-            <td>24"</td>
-            <td>Heavy d3</td>
-            <td>8</td>
-            <td>-2</td>
-            <td>3</td>
-            <td>Blast</td>
-          </tr>
-          <tr>
-            <td>Kan Klaw</td>
-            <td>M</td>
-            <td>M</td>
-            <td>+3</td>
-            <td>-3</td>
-            <td>3</td>
-            <td>-</td>
+              <td>
+                  Kombi-Skorcha
+              </td>
+              <td>
+                  Select Skorcha/Shoota to shoot. If both, -1 to hit
+              </td>
           </tr>
         </table>
-    </tr>
-  </table>
-  <table>
-    <tr>
-      <th>ABILITIES</th>
-      <table>
+      </tr>
+    </table>
+  </div>
+  <button class="collapsible"> <!--Megatrakk Scrapjets-->
+    <table>
         <tr>
-            <th>
-                Name
-            </th>
-            <th>
-                Description
-            </th>
+            <th>Name</th>
+            <th>M</th>
+            <th>WS</th>
+            <th>BS</th>
+            <th>S</th>
+            <th>T</th>
+            <th>W</th>
+            <th>A</th>
+            <th>Ld</th>
+            <th>Save</th>
+            <th>Unit Points</th>
         </tr>
         <tr>
-            <td>
-                Explodes
-            </td>
-            <td>
-                6 to explode, 3" d3 mortal wounds
-            </td>
+            <td>$ Megatrakk Scrapjets</td>
+            <td>10"</td>
+            <td>4+</td>
+            <td>5+</td>
+            <td>6</td>
+            <td>6</td>
+            <td>9</td>
+            <td>4</td>
+            <td>7</td>
+            <td>4+</td>
+            <td>200</td>
         </tr>
-        <tr>
+    </table>
+  </button>
+  <div class="content">
+    <table>
+      <tr>
+        <th>WEAPONS</th>
+          <table>
+            <tr>
+              <th>Name</th>
+              <th>Equipped</th>
+              <th>Range</th>
+              <th>Type</th>
+              <th>Strength</th>
+              <th>AP</th>
+              <th>Damage</th>
+              <th>Abilites</th>
+            </tr>
+            <tr>
+              <td>Rokkit Cannon</td>
+              <td>1</td>
+              <td>24"</td>
+              <td>Heavy d3</td>
+              <td>8</td>
+              <td>-2</td>
+              <td>3</td>
+              <td>Blast</td>
+            </tr>
+            <tr>
+              <td>Twin Big Shoota</td>
+              <td>2</td>
+              <td>36"</td>
+              <td>Dakka 10/6</td>
+              <td>5</td>
+              <td>0</td>
+              <td>1</td>
+              <td>-</td>
+            </tr>
+            <tr>
+              <td>Wing Missile</td>
+              <td>1</td>
+              <td>24"</td>
+              <td>Assault 1</td>
+              <td>8</td>
+              <td>-2</td>
+              <td>3</td>
+              <td>+1 to hit against VEHICLE</td>
+            </tr>
+            <tr>
+              <td>Nose Drill</td>
+              <td>1</td>
+              <td>M</td>
+              <td>M</td>
+              <td>+2</td>
+              <td>-2</td>
+              <td>d3</td>
+              <td>-</td>
+            </tr>
+          </table>
+      </tr>
+    </table>
+    <table>
+      <tr>
+        <th>ABILITIES</th>
+        <table>
+          <tr>
+              <th>
+                  Name
+              </th>
+              <th>
+                  Description
+              </th>
+          </tr>
+          <tr>
+              <td>
+                  Explodes
+              </td>
+              <td>
+                  6 to explode, 3" d3 mortal wounds
+              </td>
+          </tr>
+          <tr>
+              <td>
+                  Grot Gunner
+              </td>
+              <td>
+                Twin big shoota = +1 to hit
+              </td>
+          </tr>
+          <tr>
             <td>
                 Ramshackle
             </td>
             <td>
               Less than 8 S = -1 D
             </td>
-        </tr>
-        <tr>
-          <td>
-              Scrag 'Em
-          </td>
-          <td>
-            If 3 or more models in the unit, +1 attack
-          </td>
-        </tr>
-      </table>
-    </tr>
-  </table>
-</div>
-<button class="collapsible"> <!--Kommandos-->
-  <table>
-      <tr>
-          <th>Name</th>
-          <th>M</th>
-          <th>WS</th>
-          <th>BS</th>
-          <th>S</th>
-          <th>T</th>
-          <th>W</th>
-          <th>A</th>
-          <th>Ld</th>
-          <th>Save</th>
-      </tr>
-      <tr>
-          <td>Kommando Boss Nob</td>
-          <td>6"</td>
-          <td>3+</td>
-          <td>5+</td>
-          <td>5</td>
-          <td>5</td>
-          <td>2</td>
-          <td>3</td>
-          <td>7</td>
-          <td>6+</td>
-      </tr>
-      <tr>
-        <td>Kommando</td>
-        <td>6"</td>
-        <td>3+</td>
-        <td>5+</td>
-        <td>4</td>
-        <td>5</td>
-        <td>1</td>
-        <td>2</td>
-        <td>6</td>
-        <td>6+</td>
-    </tr>
-  </table>
-</button>
-<div class="content">
-  <table>
-    <tr>
-      <th>WEAPONS</th>
-        <table>
-          <tr>
-            <th>Name</th>
-            <th>Range</th>
-            <th>Type</th>
-            <th>Strength</th>
-            <th>AP</th>
-            <th>Damage</th>
-            <th>Abilites</th>
           </tr>
           <tr>
-            <td>Slugga</td>
-            <td>12"</td>
-            <td>Pistol 1</td>
-            <td>4</td>
-            <td>0</td>
-            <td>1</td>
-            <td>-</td>
-          </tr>
-          <tr>
-            <td>Stikkbombs</td>
-            <td>8"</td>
-            <td>Grenade d6</td>
-            <td>3</td>
-            <td>0</td>
-            <td>1</td>
-            <td>Blast</td>
-          </tr>
-          <tr>
-            <td>Choppa</td>
-            <td>M</td>
-            <td>M</td>
-            <td>U</td>
-            <td>-1</td>
-            <td>1</td>
-            <td>+1 attack</td>
-          </tr>
-          <tr>
-            <td>Power Klaw</td>
-            <td>M</td>
-            <td>M</td>
-            <td>x2</td>
-            <td>-3</td>
-            <td>2</td>
-            <td>-1 to hit</td>
+            <td>
+                Spiked Ram
+            </td>
+            <td>
+                After charge, d6 for each model in this unit, 4+ = d3 mortal wounds
+            </td>
           </tr>
         </table>
-    </tr>
-  </table>
-  <table>
-    <tr>
-      <th>ABILITIES</th>
-      <table>
-        <tr>
-            <th>
-                Name
-            </th>
-            <th>
-                Description
-            </th>
-        </tr>
-        <tr>
-            <td>
-                Kunnin' Infiltrators
-            </td>
-            <td>
-              Can deploy anywhere 9" away from opponent's deployment zone/models
-            </td>
-        </tr>
-        <tr>
-            <td>
-                Sneaky Gits
-            </td>
-            <td>
-              If receiving the benefit of cover, +2 to Save roll
-            </td>
-        </tr>
-        <tr>
-          <td>
-              Throat Slitters
-          </td>
-          <td>
-            If within 1" of terrain, +1 to wound roll in melee
-          </td>
-        </tr>
-      </table>
-    </tr>
-  </table>
-</div>
-<button class="collapsible"> <!--Kustom Boosta Blastas-->
-  <table>
-      <tr>
-          <th>Name</th>
-          <th>M</th>
-          <th>WS</th>
-          <th>BS</th>
-          <th>S</th>
-          <th>T</th>
-          <th>W</th>
-          <th>A</th>
-          <th>Ld</th>
-          <th>Save</th>
       </tr>
+    </table>
+  </div>
+  <button class="collapsible"> <!--Mek-->
+    <table>
+        <tr>
+            <th>Name</th>
+            <th>M</th>
+            <th>WS</th>
+            <th>BS</th>
+            <th>S</th>
+            <th>T</th>
+            <th>W</th>
+            <th>A</th>
+            <th>Ld</th>
+            <th>Save</th>
+            <th>Unit Points</th>
+        </tr>
+        <tr>
+            <td># Mek</td>
+            <td>5"</td>
+            <td>3+</td>
+            <td>5+</td>
+            <td>4</td>
+            <td>5</td>
+            <td>3</td>
+            <td>2</td>
+            <td>6</td>
+            <td>6+</td>
+            <td>40</td>
+        </tr>
+    </table>
+  </button>
+  <div class="content">
+    <table>
       <tr>
-          <td>Kustom Boosta Blastas</td>
-          <td>12"</td>
-          <td>4+</td>
-          <td>5+</td>
-          <td>5</td>
-          <td>6</td>
-          <td>8</td>
-          <td>4</td>
-          <td>7</td>
-          <td>4+</td>
+        <th>WEAPONS</th>
+          <table>
+            <tr>
+              <th>Name</th>
+              <th>Equipped</th>
+              <th>Range</th>
+              <th>Type</th>
+              <th>Strength</th>
+              <th>AP</th>
+              <th>Damage</th>
+              <th>Abilites</th>
+            </tr>
+            <tr>
+              <td>Kustom Mega-Slugga</td>
+              <td>1</td>
+              <td>12"</td>
+              <td>Pistol d3</td>
+              <td>8</td>
+              <td>-3</td>
+              <td>d6</td>
+              <td>Blast</td>
+            </tr>
+            <tr>
+              <td>Choppa</td>
+              <td>1</td>
+              <td>M</td>
+              <td>M</td>
+              <td>U</td>
+              <td>-1</td>
+              <td>1</td>
+              <td>+1 attack</td>
+            </tr>
+          </table>
       </tr>
-  </table>
-</button>
-<div class="content">
-  <table>
-    <tr>
-      <th>WEAPONS</th>
+    </table>
+    <table>
+      <tr>
+        <th>ABILITIES</th>
         <table>
           <tr>
+              <th>
+                  Name
+              </th>
+              <th>
+                  Description
+              </th>
+          </tr>
+          <tr>
+              <td>
+                  Extra Kustom Weapon
+              </td>
+              <td>
+                  +1 attack with Kustom Mega Slugga
+              </td>
+          </tr>
+          <tr>
+              <td>
+                  Grot Oiler
+              </td>
+              <td>
+                Once per battle, when the bearer repairs a VEHICLE model, that model can regain 1 additional lost wound
+              </td>
+          </tr>
+          <tr>
+            <td>
+                Mekaniak
+            </td>
+            <td>
+              Repair 1 VEHICLE model within 3" for 1 wound
+            </td>
+          </tr>
+        </table>
+      </tr>
+    </table>
+  </div>
+  <button class="collapsible"> <!--Stormboyz-->
+    <table>
+        <tr>
             <th>Name</th>
-            <th>Range</th>
-            <th>Type</th>
-            <th>Strength</th>
-            <th>AP</th>
-            <th>Damage</th>
-            <th>Abilites</th>
-          </tr>
-          <tr>
-            <td>Burna Exhaust</td>
-            <td>8"</td>
-            <td>Assault d6</td>
-            <td>4</td>
-            <td>0</td>
-            <td>1</td>
-            <td>Auto hit</td>
-          </tr>
-          <tr>
-            <td>Grot Blasta</td>
-            <td>12"</td>
-            <td>Pistol 1</td>
+            <th>M</th>
+            <th>WS</th>
+            <th>BS</th>
+            <th>S</th>
+            <th>T</th>
+            <th>W</th>
+            <th>A</th>
+            <th>Ld</th>
+            <th>Save</th>
+            <th>Unit Points</th>
+        </tr>
+        <tr>
+            <td>! Stormboy Boss Nob</td>
+            <td>12</td>
+            <td>3+</td>
+            <td>5+</td>
+            <td>5</td>
+            <td>5</td>
+            <td>2</td>
             <td>3</td>
-            <td>0</td>
-            <td>1</td>
-            <td>-</td>
-          </tr>
-          <tr>
-            <td>Rivet Cannon</td>
-            <td>36"</td>
-            <td>Dakka 9/6</td>
             <td>7</td>
-            <td>-2</td>
-            <td>2</td>
-            <td>-</td>
-          </tr>
-          <tr>
-            <td>Stikkbombs</td>
-            <td>8"</td>
-            <td>Grenade d6</td>
-            <td>3</td>
-            <td>0</td>
-            <td>1</td>
-            <td>Blast</td>
-          </tr>
-        </table>
-    </tr>
-  </table>
-  <table>
-    <tr>
-      <th>ABILITIES</th>
-      <table>
-        <tr>
-            <th>
-                Name
-            </th>
-            <th>
-                Description
-            </th>
+            <td>6+</td>
+            <td>76</td>
         </tr>
         <tr>
-            <td>
-                Explodes
-            </td>
-            <td>
-                6 to explode, 3" d3 mortal wounds
-            </td>
-        </tr>
-        <tr>
-            <td>
-                Grot Gunner
-            </td>
-            <td>
-              +1 to hit with Grot Blasta
-            </td>
-        </tr>
-        <tr>
-          <td>
-              Ramshackle
-          </td>
-          <td>
-            Less than 8 = -1 D
-          </td>
-        </tr>
-        <tr>
-          <td>
-              Riding Shotgun
-          </td>
-          <td>
-              Can shoot Grenade and Pistol in addition to other weapons
-          </td>
-        </tr>
-        <tr>
-          <td>
-              Spiked Ram
-          </td>
-          <td>
-            After charge, d6 for each model in this unit, 4+ = d3 mortal wounds
-          </td>
-        </tr>
-      </table>
-    </tr>
-  </table>
-</div>
-<button class="collapsible"> <!--Meganobz-->
-  <table>
-      <tr>
-          <th>Name</th>
-          <th>M</th>
-          <th>WS</th>
-          <th>BS</th>
-          <th>S</th>
-          <th>T</th>
-          <th>W</th>
-          <th>A</th>
-          <th>Ld</th>
-          <th>Save</th>
-      </tr>
-      <tr>
-          <td>Meganobz</td>
-          <td>5"</td>
-          <td>3+</td>
-          <td>5+</td>
-          <td>5</td>
-          <td>5</td>
-          <td>3</td>
-          <td>3</td>
-          <td>7</td>
-          <td>2+</td>
-      </tr>
-  </table>
-</button>
-<div class="content">
-  <table>
-    <tr>
-      <th>WEAPONS</th>
-        <table>
-          <tr>
-            <th>Name</th>
-            <th>Range</th>
-            <th>Type</th>
-            <th>Strength</th>
-            <th>AP</th>
-            <th>Damage</th>
-            <th>Abilites</th>
-          </tr>
-          <tr>
-            <td>Skorcha</td>
-            <td>12"</td>
-            <td>Assault d6</td>
-            <td>5</td>
-            <td>-1</td>
-            <td>1</td>
-            <td>Auto hit</td>
-          </tr>
-          <tr>
-            <td>Shoota</td>
-            <td>18"</td>
-            <td>Dakka 3/2</td>
-            <td>4</td>
-            <td>0</td>
-            <td>1</td>
-            <td>-</td>
-          </tr>
-          <tr>
-            <td>Stikkbombs</td>
-            <td>8"</td>
-            <td>Grenade d6</td>
-            <td>3</td>
-            <td>0</td>
-            <td>1</td>
-            <td>Blast</td>
-          </tr>
-          <tr>
-            <td>Killsaw</td>
-            <td>M</td>
-            <td>M</td>
-            <td>x2</td>
-            <td>-4</td>
-            <td>d3</td>
-            <td>-1 to hit, +1 attack</td>
-          </tr>
-          <tr>
-            <td>Power Klaw</td>
-            <td>M</td>
-            <td>M</td>
-            <td>x2</td>
-            <td>-3</td>
-            <td>2</td>
-            <td>-1 to hit</td>
-          </tr>
-        </table>
-    </tr>
-  </table>
-  <table>
-    <tr>
-      <th>ABILITIES</th>
-      <table>
-        <tr>
-            <th>
-                Name
-            </th>
-            <th>
-                Description
-            </th>
-        </tr>
-        <tr>
-            <td>
-                Kombi-Skorcha
-            </td>
-            <td>
-                Select Skorcha/Shoota to shoot. If both, -1 to hit
-            </td>
-        </tr>
-      </table>
-    </tr>
-  </table>
-</div>
-<button class="collapsible"> <!--Megatrakk Scrapjets-->
-  <table>
-      <tr>
-          <th>Name</th>
-          <th>M</th>
-          <th>WS</th>
-          <th>BS</th>
-          <th>S</th>
-          <th>T</th>
-          <th>W</th>
-          <th>A</th>
-          <th>Ld</th>
-          <th>Save</th>
-      </tr>
-      <tr>
-          <td>Megatrakk Scrapjets</td>
-          <td>10"</td>
-          <td>4+</td>
-          <td>5+</td>
-          <td>6</td>
-          <td>6</td>
-          <td>9</td>
-          <td>4</td>
-          <td>7</td>
-          <td>4+</td>
-      </tr>
-  </table>
-</button>
-<div class="content">
-  <table>
-    <tr>
-      <th>WEAPONS</th>
-        <table>
-          <tr>
-            <th>Name</th>
-            <th>Range</th>
-            <th>Type</th>
-            <th>Strength</th>
-            <th>AP</th>
-            <th>Damage</th>
-            <th>Abilites</th>
-          </tr>
-          <tr>
-            <td>Rokkit Cannon</td>
-            <td>24"</td>
-            <td>Heavy d3</td>
-            <td>8</td>
-            <td>-2</td>
-            <td>3</td>
-            <td>Blast</td>
-          </tr>
-          <tr>
-            <td>Twin Big Shoota</td>
-            <td>36"</td>
-            <td>Dakka 10/6</td>
-            <td>5</td>
-            <td>0</td>
-            <td>1</td>
-            <td>-</td>
-          </tr>
-          <tr>
-            <td>Wing Missile</td>
-            <td>24"</td>
-            <td>Assault 1</td>
-            <td>8</td>
-            <td>-2</td>
-            <td>3</td>
-            <td>+1 to hit against VEHICLE</td>
-          </tr>
-          <tr>
-            <td>Nose Drill</td>
-            <td>M</td>
-            <td>M</td>
-            <td>+2</td>
-            <td>-2</td>
-            <td>d3</td>
-            <td>-</td>
-          </tr>
-        </table>
-    </tr>
-  </table>
-  <table>
-    <tr>
-      <th>ABILITIES</th>
-      <table>
-        <tr>
-            <th>
-                Name
-            </th>
-            <th>
-                Description
-            </th>
-        </tr>
-        <tr>
-            <td>
-                Explodes
-            </td>
-            <td>
-                6 to explode, 3" d3 mortal wounds
-            </td>
-        </tr>
-        <tr>
-            <td>
-                Grot Gunner
-            </td>
-            <td>
-              Twin big shoota = +1 to hit
-            </td>
-        </tr>
-        <tr>
-          <td>
-              Ramshackle
-          </td>
-          <td>
-            Less than 8 S = -1 D
-          </td>
-        </tr>
-        <tr>
-          <td>
-              Spiked Ram
-          </td>
-          <td>
-              After charge, d6 for each model in this unit, 4+ = d3 mortal wounds
-          </td>
-        </tr>
-      </table>
-    </tr>
-  </table>
-</div>
-<button class="collapsible"> <!--Mek-->
-  <table>
-      <tr>
-          <th>Name</th>
-          <th>M</th>
-          <th>WS</th>
-          <th>BS</th>
-          <th>S</th>
-          <th>T</th>
-          <th>W</th>
-          <th>A</th>
-          <th>Ld</th>
-          <th>Save</th>
-      </tr>
-      <tr>
-          <td>Mek</td>
-          <td>5"</td>
+          <td>Stormboyz</td>
+          <td>12</td>
           <td>3+</td>
           <td>5+</td>
           <td>4</td>
           <td>5</td>
-          <td>3</td>
+          <td>1</td>
           <td>2</td>
           <td>6</td>
           <td>6+</td>
+          <td>76</td>
       </tr>
-  </table>
-</button>
-<div class="content">
-  <table>
-    <tr>
-      <th>WEAPONS</th>
+    </table>
+  </button>
+  <div class="content">
+    <table>
+      <tr>
+        <th>WEAPONS</th>
+          <table>
+            <tr>
+              <th>Name</th>
+              <th>Equipped</th>
+              <th>Range</th>
+              <th>Type</th>
+              <th>Strength</th>
+              <th>AP</th>
+              <th>Damage</th>
+              <th>Abilites</th>
+            </tr>
+            <tr>
+              <td>Slugga</td>
+              <td>1</td>
+              <td>12"</td>
+              <td>Pistol 1</td>
+              <td>4</td>
+              <td>0</td>
+              <td>1</td>
+              <td>-</td>
+            </tr>
+            <tr>
+              <td>Stikkbombs</td>
+              <td>1</td>
+              <td>8"</td>
+              <td>Grenade d6</td>
+              <td>3</td>
+              <td>0</td>
+              <td>1</td>
+              <td>Blast</td>
+            </tr>
+            <tr>
+              <td>Choppa</td>
+              <td>1</td>
+              <td>M</td>
+              <td>M</td>
+              <td>U</td>
+              <td>-1</td>
+              <td>1</td>
+              <td>+1 attack</td>
+            </tr>
+            <tr>
+              <td>Power Klaw</td>
+              <td>1</td>
+              <td>M</td>
+              <td>M</td>
+              <td>x2</td>
+              <td>-3</td>
+              <td>2</td>
+              <td>-1 to hit</td>
+            </tr>
+          </table>
+      </tr>
+    </table>
+    <table>
+      <tr>
+        <th>ABILITIES</th>
         <table>
           <tr>
-            <th>Name</th>
-            <th>Range</th>
-            <th>Type</th>
-            <th>Strength</th>
-            <th>AP</th>
-            <th>Damage</th>
-            <th>Abilites</th>
+              <th>
+                  Name
+              </th>
+              <th>
+                  Description
+              </th>
           </tr>
           <tr>
-            <td>Kustom Mega-Slugga</td>
-            <td>12"</td>
-            <td>Pistol d3</td>
-            <td>8</td>
-            <td>-3</td>
-            <td>d6</td>
-            <td>Blast</td>
+              <td>
+                  Full Throttle
+              </td>
+              <td>
+                  Auto 6" to advance, but roll 1 d6. 4+ = 1 mortal wound
+              </td>
           </tr>
           <tr>
-            <td>Choppa</td>
-            <td>M</td>
-            <td>M</td>
-            <td>U</td>
-            <td>-1</td>
-            <td>1</td>
-            <td>+1 attack</td>
+              <td>
+                  Stormboyz Strike
+              </td>
+              <td>
+                Deepstrike
+              </td>
           </tr>
         </table>
-    </tr>
-  </table>
-  <table>
-    <tr>
-      <th>ABILITIES</th>
-      <table>
-        <tr>
-            <th>
-                Name
-            </th>
-            <th>
-                Description
-            </th>
-        </tr>
-        <tr>
-            <td>
-                Extra Kustom Weapon
-            </td>
-            <td>
-                +1 attack with Kustom Mega Slugga
-            </td>
-        </tr>
-        <tr>
-            <td>
-                Grot Oiler
-            </td>
-            <td>
-              Once per battle, when the bearer repairs a VEHICLE model, that model can regain 1 additional lost wound
-            </td>
-        </tr>
-        <tr>
-          <td>
-              Mekaniak
-          </td>
-          <td>
-            Repair 1 VEHICLE model within 3" for 1 wound
-          </td>
-        </tr>
-      </table>
-    </tr>
-  </table>
-</div>
-<button class="collapsible"> <!--Stormboyz-->
-  <table>
-      <tr>
-          <th>Name</th>
-          <th>M</th>
-          <th>WS</th>
-          <th>BS</th>
-          <th>S</th>
-          <th>T</th>
-          <th>W</th>
-          <th>A</th>
-          <th>Ld</th>
-          <th>Save</th>
       </tr>
-      <tr>
-          <td>Stormboy Boss Nob</td>
-          <td>12</td>
-          <td>3+</td>
-          <td>5+</td>
-          <td>5</td>
-          <td>5</td>
-          <td>2</td>
-          <td>3</td>
-          <td>7</td>
-          <td>6+</td>
-      </tr>
-      <tr>
-        <td>Stormboyz</td>
-        <td>12</td>
-        <td>3+</td>
-        <td>5+</td>
-        <td>4</td>
-        <td>5</td>
-        <td>1</td>
-        <td>2</td>
-        <td>6</td>
-        <td>6+</td>
-    </tr>
-  </table>
-</button>
-<div class="content">
-  <table>
-    <tr>
-      <th>WEAPONS</th>
-        <table>
-          <tr>
+    </table>
+  </div>
+  <button class="collapsible"> <!--Trukk with Fortress on Wheels-->
+    <table>
+        <tr>
             <th>Name</th>
-            <th>Range</th>
-            <th>Type</th>
-            <th>Strength</th>
-            <th>AP</th>
-            <th>Damage</th>
-            <th>Abilites</th>
-          </tr>
-          <tr>
-            <td>Slugga</td>
-            <td>12"</td>
-            <td>Pistol 1</td>
-            <td>4</td>
-            <td>0</td>
-            <td>1</td>
-            <td>-</td>
-          </tr>
-          <tr>
-            <td>Stikkbombs</td>
-            <td>8"</td>
-            <td>Grenade d6</td>
+            <th>M</th>
+            <th>WS</th>
+            <th>BS</th>
+            <th>S</th>
+            <th>T</th>
+            <th>W</th>
+            <th>A</th>
+            <th>Ld</th>
+            <th>Save</th>
+            <th>Unit Points</th>
+        </tr>
+        <tr>
+            <td>$ Trukk (10-6)</td>
+            <td>12</td>
+            <td>5+</td>
+            <td>5+</td>
+            <td>6</td>
+            <td>6</td>
+            <td>10</td>
             <td>3</td>
-            <td>0</td>
-            <td>1</td>
-            <td>Blast</td>
-          </tr>
-          <tr>
-            <td>Choppa</td>
-            <td>M</td>
-            <td>M</td>
-            <td>U</td>
-            <td>-1</td>
-            <td>1</td>
-            <td>+1 attack</td>
-          </tr>
-          <tr>
-            <td>Power Klaw</td>
-            <td>M</td>
-            <td>M</td>
-            <td>x2</td>
-            <td>-3</td>
-            <td>2</td>
-            <td>-1 to hit</td>
-          </tr>
-        </table>
-    </tr>
-  </table>
-  <table>
-    <tr>
-      <th>ABILITIES</th>
-      <table>
-        <tr>
-            <th>
-                Name
-            </th>
-            <th>
-                Description
-            </th>
+            <td>6</td>
+            <td>4+</td>
+            <td>90</td>
         </tr>
         <tr>
-            <td>
-                Full Throttle
-            </td>
-            <td>
-                Auto 6" to advance, but roll 1 d6. 4+ = 1 mortal wound
-            </td>
-        </tr>
-        <tr>
-            <td>
-                Stormboyz Strike
-            </td>
-            <td>
-              Deepstrike
-            </td>
-        </tr>
-      </table>
-    </tr>
-  </table>
-</div>
-<button class="collapsible"> <!--Trukk-->
-  <table>
-      <tr>
-          <th>Name</th>
-          <th>M</th>
-          <th>WS</th>
-          <th>BS</th>
-          <th>S</th>
-          <th>T</th>
-          <th>W</th>
-          <th>A</th>
-          <th>Ld</th>
-          <th>Save</th>
-      </tr>
-      <tr>
-          <td>Trukk (10-6)</td>
-          <td>12</td>
+          <td>$ Trukk (5-3)</td>
+          <td>8</td>
           <td>5+</td>
           <td>5+</td>
-          <td>6</td>
+          <td>5</td>
           <td>6</td>
           <td>10</td>
-          <td>3</td>
+          <td>d3</td>
           <td>6</td>
           <td>4+</td>
+          <td>90</td>
       </tr>
       <tr>
-        <td>Trukk (5-3)</td>
-        <td>8</td>
+        <td>$ Trukk (2-1)</td>
+        <td>6</td>
         <td>5+</td>
         <td>5+</td>
-        <td>5</td>
+        <td>4</td>
         <td>6</td>
         <td>10</td>
-        <td>d3</td>
+        <td>1</td>
         <td>6</td>
         <td>4+</td>
+        <td>90</td>
     </tr>
-    <tr>
-      <td>Trukk (2-1)</td>
-      <td>6</td>
-      <td>5+</td>
-      <td>5+</td>
-      <td>4</td>
-      <td>6</td>
-      <td>10</td>
-      <td>1</td>
-      <td>6</td>
-      <td>4+</td>
-  </tr>
-  </table>
-</button>
-<div class="content">
-  <table>
-    <tr>
-      <th>WEAPONS</th>
+    </table>
+  </button>
+  <div class="content">
+    <table>
+      <tr>
+        <th>WEAPONS</th>
+          <table>
+            <tr>
+              <th>Name</th>
+              <th>Equipped</th>
+              <th>Range</th>
+              <th>Type</th>
+              <th>Strength</th>
+              <th>AP</th>
+              <th>Damage</th>
+              <th>Abilites</th>
+            </tr>
+            <tr>
+              <td>Big Shoota</td>
+              <td>1</td>
+              <td>36"</td>
+              <td>Dakka 5/3</td>
+              <td>5</td>
+              <td>0</td>
+              <td>1</td>
+              <td>-</td>
+            </tr>
+          </table>
+      </tr>
+    </table>
+    <table>
+      <tr>
+        <th>ABILITIES</th>
         <table>
           <tr>
-            <th>Name</th>
-            <th>Range</th>
-            <th>Type</th>
-            <th>Strength</th>
-            <th>AP</th>
-            <th>Damage</th>
-            <th>Abilites</th>
+              <th>
+                  Name
+              </th>
+              <th>
+                  Description
+              </th>
           </tr>
           <tr>
-            <td>Big Shoota</td>
-            <td>36"</td>
-            <td>Dakka 5/3</td>
-            <td>5</td>
-            <td>0</td>
-            <td>1</td>
-            <td>-</td>
+              <td>
+                  Explodes
+              </td>
+              <td>
+                  6 to explode, 6" d3 mortal wounds
+              </td>
           </tr>
           <tr>
-            <td>Wreckin' Ball</td>
-            <td>M</td>
-            <td>M</td>
-            <td>+2</td>
-            <td>-1</td>
-            <td>2</td>
-            <td>1 additional attack with this weapon</td>
+              <td>
+                  Fortress on Wheels
+              </td>
+              <td>
+                5++
+              </td>
+          </tr>
+          <tr>
+            <td>
+                Open-Topped
+            </td>
+            <td>
+              Models can shoot if embarked, but suffer normal penalties
+            </td>
+          </tr>
+          <tr>
+            <td>
+                Ramshackle
+            </td>
+            <td>
+                Less than 8 S = -1 D
+            </td>
           </tr>
         </table>
-    </tr>
-  </table>
-  <table>
-    <tr>
-      <th>ABILITIES</th>
-      <table>
-        <tr>
-            <th>
-                Name
-            </th>
-            <th>
-                Description
-            </th>
-        </tr>
-        <tr>
-            <td>
-                Explodes
-            </td>
-            <td>
-                6 to explode, 6" d3 mortal wounds
-            </td>
-        </tr>
-        <tr>
-            <td>
-                Fortress on Wheels
-            </td>
-            <td>
-              5++
-            </td>
-        </tr>
-        <tr>
-          <td>
-              Open-Topped
-          </td>
-          <td>
-            Models can shoot if embarked, but suffer normal penalties
-          </td>
-        </tr>
-        <tr>
-          <td>
-              Ramshackle
-          </td>
-          <td>
-              Less than 8 S = -1 D
-          </td>
-        </tr>
-      </table>
-    </tr>
-  </table>
-</div>
-<button class="collapsible"> <!--Warboss-->
-  <table>
-      <tr>
-          <th>Name</th>
-          <th>M</th>
-          <th>WS</th>
-          <th>BS</th>
-          <th>S</th>
-          <th>T</th>
-          <th>W</th>
-          <th>A</th>
-          <th>Ld</th>
-          <th>Save</th>
       </tr>
-      <tr>
-          <td>Warboss</td>
-          <td>5"</td>
-          <td>2+</td>
-          <td>5+</td>
-          <td>6</td>
-          <td>6</td>
-          <td>6</td>
-          <td>5</td>
+    </table>
+  </div>
+  <button class="collapsible"> <!--Trukk with Wrecking Ball-->
+    <table>
+        <tr>
+            <th>Name</th>
+            <th>M</th>
+            <th>WS</th>
+            <th>BS</th>
+            <th>S</th>
+            <th>T</th>
+            <th>W</th>
+            <th>A</th>
+            <th>Ld</th>
+            <th>Save</th>
+            <th>Unit Points</th>
+        </tr>
+        <tr>
+            <td>$ Trukk (10-6)</td>
+            <td>12</td>
+            <td>5+</td>
+            <td>5+</td>
+            <td>6</td>
+            <td>6</td>
+            <td>10</td>
+            <td>3</td>
+            <td>6</td>
+            <td>4+</td>
+            <td>75</td>
+        </tr>
+        <tr>
+          <td>$ Trukk (5-3)</td>
           <td>8</td>
+          <td>5+</td>
+          <td>5+</td>
+          <td>5</td>
+          <td>6</td>
+          <td>10</td>
+          <td>d3</td>
+          <td>6</td>
           <td>4+</td>
+          <td>75</td>
       </tr>
-  </table>
-</button>
-<div class="content">
-  <table>
-    <tr>
-      <th>WEAPONS</th>
+      <tr>
+        <td>$ Trukk (2-1)</td>
+        <td>6</td>
+        <td>5+</td>
+        <td>5+</td>
+        <td>4</td>
+        <td>6</td>
+        <td>10</td>
+        <td>1</td>
+        <td>6</td>
+        <td>4+</td>
+        <td>75</td>
+    </tr>
+    </table>
+  </button>
+  <div class="content">
+    <table>
+      <tr>
+        <th>WEAPONS</th>
+          <table>
+            <tr>
+              <th>Name</th>
+              <th>Equipped</th>
+              <th>Range</th>
+              <th>Type</th>
+              <th>Strength</th>
+              <th>AP</th>
+              <th>Damage</th>
+              <th>Abilites</th>
+            </tr>
+            <tr>
+              <td>Big Shoota</td>
+              <td>1</td>
+              <td>36"</td>
+              <td>Dakka 5/3</td>
+              <td>5</td>
+              <td>0</td>
+              <td>1</td>
+              <td>-</td>
+            </tr>
+            <tr>
+              <td>Wreckin' Ball</td>
+              <td>1</td>
+              <td>M</td>
+              <td>M</td>
+              <td>+2</td>
+              <td>-1</td>
+              <td>2</td>
+              <td>1 additional attack with this weapon</td>
+            </tr>
+          </table>
+      </tr>
+    </table>
+    <table>
+      <tr>
+        <th>ABILITIES</th>
         <table>
           <tr>
-            <th>Name</th>
-            <th>Range</th>
-            <th>Type</th>
-            <th>Strength</th>
-            <th>AP</th>
-            <th>Damage</th>
-            <th>Abilites</th>
+              <th>
+                  Name
+              </th>
+              <th>
+                  Description
+              </th>
           </tr>
           <tr>
-            <td>Rokkit Launcha</td>
-            <td>24"</td>
-            <td>Heavy d3</td>
-            <td>8</td>
-            <td>-2</td>
-            <td>d6</td>
-            <td>Blast</td>
+              <td>
+                  Explodes
+              </td>
+              <td>
+                  6 to explode, 6" d3 mortal wounds
+              </td>
           </tr>
           <tr>
-            <td>Shoota</td>
-            <td>18"</td>
-            <td>Dakka 3/2</td>
-            <td>4</td>
-            <td>0</td>
-            <td>1</td>
-            <td>-</td>
+            <td>
+                Open-Topped
+            </td>
+            <td>
+              Models can shoot if embarked, but suffer normal penalties
+            </td>
           </tr>
           <tr>
-            <td>Slugga</td>
-            <td>12"</td>
-            <td>Pistol 1</td>
-            <td>4</td>
-            <td>0</td>
-            <td>1</td>
-            <td>-</td>
-          </tr>
-          <tr>
-            <td>Stikkbombs</td>
-            <td>8"</td>
-            <td>Grenade d6</td>
-            <td>3</td>
-            <td>0</td>
-            <td>1</td>
-            <td>Blast</td>
-          </tr>
-          <tr>
-            <td>Attack Squig</td>
-            <td>M</td>
-            <td>M</td>
-            <td>4</td>
-            <td>-1</td>
-            <td>1</td>
-            <td>Make 2 additional attacks with this weapon</td>
-          </tr>
-          <tr>
-            <td>Da Killa Klaw</td>
-            <td>M</td>
-            <td>M</td>
-            <td>x2</td>
-            <td>-4</td>
-            <td>3</td>
-            <td>-</td>
+            <td>
+                Ramshackle
+            </td>
+            <td>
+                Less than 8 S = -1 D
+            </td>
           </tr>
         </table>
-    </tr>
-  </table>
-  <table>
-    <tr>
-      <th>ABILITIES</th>
-      <table>
+      </tr>
+    </table>
+  </div>
+  <button class="collapsible"> <!--Warboss-->
+    <table>
         <tr>
-            <th>
-                Name
-            </th>
-            <th>
-                Description
-            </th>
+            <th>Name</th>
+            <th>M</th>
+            <th>WS</th>
+            <th>BS</th>
+            <th>S</th>
+            <th>T</th>
+            <th>W</th>
+            <th>A</th>
+            <th>Ld</th>
+            <th>Save</th>
+            <th>Unit Points</th>
         </tr>
         <tr>
+            <td># Warboss</td>
+            <td>5"</td>
+            <td>2+</td>
+            <td>5+</td>
+            <td>6</td>
+            <td>6</td>
+            <td>6</td>
+            <td>5</td>
+            <td>8</td>
+            <td>4+</td>
+            <td>105</td>
+        </tr>
+    </table>
+  </button>
+  <div class="content">
+    <table>
+      <tr>
+        <th>WEAPONS</th>
+          <table>
+            <tr>
+              <th>Name</th>
+              <th>Equipped</th>
+              <th>Range</th>
+              <th>Type</th>
+              <th>Strength</th>
+              <th>AP</th>
+              <th>Damage</th>
+              <th>Abilites</th>
+            </tr>
+            <tr>
+              <td>Rokkit Launcha</td>
+              <td>1</td>
+              <td>24"</td>
+              <td>Heavy d3</td>
+              <td>8</td>
+              <td>-2</td>
+              <td>d6</td>
+              <td>Blast</td>
+            </tr>
+            <tr>
+              <td>Shoota</td>
+              <td>1</td>
+              <td>18"</td>
+              <td>Dakka 3/2</td>
+              <td>4</td>
+              <td>0</td>
+              <td>1</td>
+              <td>-</td>
+            </tr>
+            <tr>
+              <td>Slugga</td>
+              <td>1</td>
+              <td>12"</td>
+              <td>Pistol 1</td>
+              <td>4</td>
+              <td>0</td>
+              <td>1</td>
+              <td>-</td>
+            </tr>
+            <tr>
+              <td>Stikkbombs</td>
+              <td>1</td>
+              <td>8"</td>
+              <td>Grenade d6</td>
+              <td>3</td>
+              <td>0</td>
+              <td>1</td>
+              <td>Blast</td>
+            </tr>
+            <tr>
+              <td>Attack Squig</td>
+              <td>1</td>
+              <td>M</td>
+              <td>M</td>
+              <td>4</td>
+              <td>-1</td>
+              <td>1</td>
+              <td>Make 2 additional attacks with this weapon</td>
+            </tr>
+            <tr>
+              <td>Da Killa Klaw</td>
+              <td>1</td>
+              <td>M</td>
+              <td>M</td>
+              <td>x2</td>
+              <td>-4</td>
+              <td>3</td>
+              <td>-</td>
+            </tr>
+          </table>
+      </tr>
+    </table>
+    <table>
+      <tr>
+        <th>ABILITIES</th>
+        <table>
+          <tr>
+              <th>
+                  Name
+              </th>
+              <th>
+                  Description
+              </th>
+          </tr>
+          <tr>
+              <td>
+                  Brutal but Kunnin
+              </td>
+              <td>
+                  If all attacks target 1 unit, reroll attacks that do not reach the damage stage
+              </td>
+          </tr>
+          <tr>
+              <td>
+                  Dead Tough
+              </td>
+              <td>
+                5++
+              </td>
+          </tr>
+          <tr>
             <td>
-                Brutal but Kunnin
+                Kombi-Rokkit
             </td>
             <td>
-                If all attacks target 1 unit, reroll attacks that do not reach the damage stage
+              Select Rokkit Launcha/Shoota to shoot. If both, -1 to hit
             </td>
-        </tr>
-        <tr>
+          </tr>
+          <tr>
             <td>
-                Dead Tough
-            </td>
-            <td>
-              5++
-            </td>
-        </tr>
-        <tr>
-          <td>
-              Kombi-Rokkit
-          </td>
-          <td>
-            Select Rokkit Launcha/Shoota to shoot. If both, -1 to hit
-          </td>
-        </tr>
-        <tr>
-          <td>
-              Warboss (Aura)
-          </td>
-          <td>
-              If CORE or CHARACTER within 6", +1 to hit in melee
-          </td>
-        </tr>
-        <tr>
-          <td>
-              Da Fixer Upper
-          </td>
-          <td>
-            When using Big Mekaniak, roll one d6: on a 2+ the vehicle regains 1 additional wound, and you can select one enemy VEHICLE unit within 12" to suffer d3 mortal wounds
-          </td>
-        </tr>
-        <tr>
-            <td>
-                Kustom Force Field
+                Warboss (Aura)
             </td>
             <td>
-                (Aura) 6++ for ORKS units within 6"
+                If CORE or CHARACTER within 6", +1 to hit in melee
             </td>
-        </tr>
-      </table>
-    </tr>
-  </table>
+          </tr>
+          <tr>
+            <td>
+                Da Fixer Upper
+            </td>
+            <td>
+              When using Big Mekaniak, roll one d6: on a 2+ the vehicle regains 1 additional wound, and you can select one enemy VEHICLE unit within 12" to suffer d3 mortal wounds
+            </td>
+          </tr>
+          <tr>
+              <td>
+                  Kustom Force Field
+              </td>
+              <td>
+                  (Aura) 6++ for ORKS units within 6"
+              </td>
+          </tr>
+        </table>
+      </tr>
+    </table>
+  </div>
+  <div> <!--Keywords-->
+    <p>
+      ! = CORE, $ = VEHICLE, # = CHARACTER
+    </p>
+  </div>
+</div>
+
+<div id="Missions" class="tabcontent">
+  <button class="collapsible"> <!--Tear Down their Icons-->
+    <table>
+      <tr>
+        <th>Name</th>
+        <th>Deployment</th>
+        <th>Objectives</th>
+      </tr>
+      <tr>
+        <td>Tear Down their Icons</td>
+        <td>Diagonals</td>
+        <td>5</td>
+      </tr>
+    </table>
+  </button>
+  <div class="content">
+    <table>
+      <tr>
+        <th>Primary 1</th>
+        <th>Primary 2</th>
+        <th>Action 1</th>
+        <th>Action 2</th>
+        <th>Special Rules</th>
+      </tr>
+      <tr>
+        <td>
+          Take and Hold<br>
+          -Control 1 for 4 VP<br>
+          -Control 2 or more for 4 VP<br>
+          -Control more than the opponent for 4 VP<br>
+        </td>
+        <td>
+          Detonation<br>
+          -Score 4 VP for each Prime Explosives marker within the opponent's territory
+        </td>
+        <td>
+          Prime Explosives<br>
+          -Start action at the end of your Movement phase within opponent's territory and more than 9" away from Primed Explosives<br>
+          -If unit is ObSec, complete action at the end of the turn. Otherwise complete action at the end of your next command phase<br>
+          -Set up 1 Primed Explosive marker within 3" of the unit and wholly within your opponent's territory
+        </td>
+        <td>
+          Defuse Explosives<br>
+          -Start action at the end of your Movement phase within range of a Primed Explosive marker within your territory and no enemy units (excluding AIRCRAFT) are within range<br>
+          -Complete action at the end of the turn if the unit is still within range<br>
+          -If successfully completed, roll 1 d6 and add 3 if the unit is ObSec. On a 4+ remove the Primed Objective marker
+        </td>
+        <td>
+          -
+        </td>
+      </tr>
+    </table>
+  </div>
+  <button class="collapsible"> <!--Abandoned Sanctuaries-->
+    <table>
+      <tr>
+        <th>Name</th>
+        <th>Deployment</th>
+        <th>Objectives</th>
+      </tr>
+      <tr>
+        <td>Abandoned Sanctuaries</td>
+        <td>Long</td>
+        <td>5</td>
+      </tr>
+    </table>
+  </button>
+  <div class="content">
+    <table>
+      <tr>
+        <th>Primary 1</th>
+        <th>Primary 2</th>
+        <th>Action 1</th>
+        <th>Action 2</th>
+        <th>Special Rules</th>
+      </tr>
+      <tr>
+        <td>
+          Take and Hold<br>
+          -Control 1 for 4 VP<br>
+          -Control 2 or more for 4 VP<br>
+          -Control more than the opponent for 4 VP<br>
+        </td>
+        <td>
+          Secure the Sanctuaries<br>
+          -Score 2 VP if at least one of the following is completed at the end of your turn:<br>
+            -You control the center objective marker<br>
+            -You destroyed one enemy unit within 6" of the battlefield center<br>
+          -Score 5 VP if you control the center objective marker at the end of the battle
+        </td>
+        <td>
+          -
+        </td>
+        <td>
+          -
+        </td>
+        <td>
+          -No units can be set up in no-mans land<br>
+          -No units can make pre-game moves<br>
+          -No units can be redeployed
+        </td>
+      </tr>
+    </table>
+  </div>
+  <button class="collapsible"> <!--The Scouring-->
+    <table>
+      <tr>
+        <th>Name</th>
+        <th>Deployment</th>
+        <th>Objectives</th>
+      </tr>
+      <tr>
+        <td>The Scouring</td>
+        <td>Short</td>
+        <td>5</td>
+      </tr>
+    </table>
+  </button>
+  <div class="content">
+    <table>
+      <tr>
+        <th>Primary 1</th>
+        <th>Primary 2</th>
+        <th>Action 1</th>
+        <th>Action 2</th>
+        <th>Special Rules</th>
+      </tr>
+      <tr>
+        <td>
+          Take and Hold<br>
+          -Control 1 for 4 VP<br>
+          -Control 2 or more for 4 VP<br>
+          -Control more than the opponent for 4 VP<br>
+        </td>
+        <td>
+          Strategic Scan<br>
+          -At the end of the battle, score 3 VP for each objective marker that has been scanned
+        </td>
+        <td>
+          Auspex Scan<br>
+          -Perform this action at the end of the Movement phase if you are within range of an objective marker not already scanned<br>
+          -Cannot start if there are any enemy units (excluding AIRCRAFT) within range<br>
+          -Complete action at the start of your next command phase, or at the end of the battle
+        </td>
+        <td>
+          -
+        </td>
+        <td>
+          -
+        </td>
+      </tr>
+    </table>
+  </div>
+  <button class="collapsible"> <!--Death and Zeal-->
+    <table>
+      <tr>
+        <th>Name</th>
+        <th>Deployment</th>
+        <th>Objectives</th>
+      </tr>
+      <tr>
+        <td>Death and Zeal</td>
+        <td>Corners</td>
+        <td>5</td>
+      </tr>
+    </table>
+  </button>
+  <div class="content">
+    <table>
+      <tr>
+        <th>Primary 1</th>
+        <th>Primary 2</th>
+        <th>Action 1</th>
+        <th>Action 2</th>
+        <th>Special Rules</th>
+      </tr>
+      <tr>
+        <td>
+          Take and Hold<br>
+          -Control 1 for 4 VP<br>
+          -Control 2 or more for 4 VP<br>
+          -Control more than the opponent for 4 VP<br>
+        </td>
+        <td>
+          Direct Assault<br>
+          -At the end of your turn, score 2 VP if you satisfy one, or 3 VP if you satisfy both, of the following:<br>
+            -Control every objective marker or control one objective marker they did not control at the start of their turn<br>
+            -Destroyed at leastone enemy unit in range of an objective marker at the start of the turn
+        </td>
+        <td>
+          -
+        </td>
+        <td>
+          -
+        </td>
+        <td>
+          Control an objective marker lasts until your opponent takes it, even if you move away from it
+        </td>
+      </tr>
+    </table>
+  </div>
+  <button class="collapsible"> <!--Conversion-->
+    <table>
+      <tr>
+        <th>Name</th>
+        <th>Deployment</th>
+        <th>Objectives</th>
+      </tr>
+      <tr>
+        <td>Conversion</td>
+        <td>Corners</td>
+        <td>5</td>
+      </tr>
+    </table>
+  </button>
+  <div class="content">
+    <table>
+      <tr>
+        <th>Primary 1</th>
+        <th>Primary 2</th>
+        <th>Action 1</th>
+        <th>Action 2</th>
+        <th>Special Rules</th>
+      </tr>
+      <tr>
+        <td>
+          Take and Hold<br>
+          -Control 1 for 4 VP<br>
+          -Control 2 or more for 4 VP<br>
+          -Control more than the opponent for 4 VP<br>
+        </td>
+        <td>
+          Corrupted Ground<br>
+          -At the end of your turn:<br>
+            -Score 4 VP if you control the objective marker in your opponent's deployment zone<br>
+            -Score 2 VP if you control one or more objectives in no-man's land<br>
+            -Lose 1 VP if you do not control your own objective marker
+        </td>
+        <td>
+          -
+        </td>
+        <td>
+          -
+        </td>
+        <td>
+          You only receive your battle-forged CP at the start of your turn if your Warlord is on the battlefield or in a transport
+        </td>
+      </tr>
+    </table>
+  </div>
 </div>
 
 
@@ -1711,6 +2229,20 @@ for (i = 0; i < coll.length; i++) {
       content.style.maxHeight = content.scrollHeight + "px";
     } 
   });
+}
+
+function openDetail(evt, detailName) {
+  var i, tabcontent, tablinks;
+  tabcontent = document.getElementsByClassName("tabcontent");
+  for (i = 0; i < tabcontent.length; i++) {
+    tabcontent[i].style.display = "none";
+  }
+  tablinks = document.getElementsByClassName("tablinks");
+  for (i = 0; i < tablinks.length; i++) {
+    tablinks[i].className = tablinks[i].className.replace(" active", "");
+  }
+  document.getElementById(detailName).style.display = "block";
+  evt.currentTarget.className += " active";
 }
 </script>
 
